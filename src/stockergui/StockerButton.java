@@ -5,6 +5,7 @@
 package stockergui;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
@@ -20,11 +21,9 @@ public class StockerButton extends Button {
         super(text);
         
         this.setMaxWidth(Double.MAX_VALUE);
+        this.setAlignment(Pos.BASELINE_RIGHT);
         this.setStyle("-fx-background-color:#00B2EE; -fx-font-weight:bold; -fx-background-radius: 0; -fx-background-insets: 0;");
         this.setFont(ft);
-        
-
-        
     }
     
 }
