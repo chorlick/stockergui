@@ -11,7 +11,10 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="StockerGui.jar" size="21728" download="eager" />
+    <jar href="StockerGui.jar" size="22059" download="eager" />
+    <jar href="lib/commons-net-3.2.jar" size="275501" download="eager" />
+    <jar href="lib/stocker.jar" size="10250" download="eager" />
+    <jar href="lib/ta-lib-0.4.0.jar" size="233171" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="StockerGui" >
     <param name="requiredFXVersion" value="2.2+"/>

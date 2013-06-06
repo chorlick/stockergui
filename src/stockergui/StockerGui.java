@@ -4,6 +4,8 @@
  */
 package stockergui;
 
+import java.io.IOException;
+import java.util.LinkedList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -31,6 +33,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import stocker.Stocker;
+
 
 /**
  *
@@ -40,9 +44,10 @@ public class StockerGui extends Application {
 
     private double yOffset = 0;
     private double xOffset = 0;
-
+    public LinkedList<StockerButton> nasdaqs = new LinkedList<StockerButton>();
+    public Stocker stocker = new Stocker();
     @Override
-    public void start(final Stage primaryStage) {
+    public void start(final Stage primaryStage) throws IOException {
         BorderPane root = new BorderPane();
         primaryStage.setTitle("Stocker");
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -105,15 +110,18 @@ public class StockerGui extends Application {
         icons_label.setFont(header_font);
         
         
+        stocker.getNASDAQ();
+        for(int i = 0 ; i < stocker.stock_list.size(); i++) {
+            nasdaqs.add(new StockerButton(stocker.stock_list.get(i).ticker, label_font));
+             vbox_left.getChildren().add(nasdaqs.get(i));
+        }
         
-        StockerButton first_symbol = new StockerButton("Test", label_font);
         
-
         
  
         
         label.setFont(header_font);    
-        vbox_left.getChildren().add(first_symbol);
+ 
         vbox_left.getChildren().add(icons_label);
         primaryStage.setScene(scene);
         primaryStage.show();
